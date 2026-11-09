@@ -1,0 +1,24 @@
+# Aggressive filtering: higher edu threshold, exact-Jaccard verification, PII docs dropped.
+run_name: strict
+output_dir: outputs/strict
+inputs:
+  - data/samples/corpus.jsonl
+  - data/samples/cc_sample.warc.gz
+  - data/samples/cc_sample.wet
+  - data/samples/html
+
+dedup:
+  threshold: 0.6
+  verify: exact
+  mode: mapreduce
+
+quality:
+  thresholds:
+    default: 3.5
+
+safety:
+  pii:
+    actions:
+      CREDIT_CARD: drop
+      CNIC: drop
+      IBAN: drop

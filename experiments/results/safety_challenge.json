@@ -1,0 +1,38 @@
+{
+  "pii": {
+    "items": 20,
+    "entity_recall": 0.643,
+    "false_positive_items": "0/7 negatives",
+    "fp_ids": [],
+    "missed": [
+      "pii-01 (obfuscated email)",
+      "pii-02 (dotted PK mobile)",
+      "pii-04 (CNIC without dashes)",
+      "pii-15 (spelled-out number)",
+      "pii-18 (Urdu-digit CNIC without dashes)"
+    ]
+  },
+  "toxicity_lexicon": {
+    "items": 20,
+    "precision": 0.4,
+    "recall": 0.4,
+    "tp": 4,
+    "fp": 6,
+    "fn": 6,
+    "tn": 4,
+    "errors": [
+      "FN tox-02 (out-of-lexicon dehumanisation)",
+      "FN tox-03 (out-of-lexicon threat)",
+      "FN tox-04 (paraphrased xenophobic insult)",
+      "FN tox-05 (out-of-lexicon Urdu threat)",
+      "FN tox-09 (sarcasm)",
+      "FN tox-10 (out-of-lexicon Urdu insult)",
+      "FP ben-01 (benign use of 'stupid')",
+      "FP ben-02 (literary discussion)",
+      "FP ben-04 (literal 'trash')",
+      "FP ben-05 (literal 'donkey' (also an Urdu insult))",
+      "FP ben-07 (benign use of 'jahil')",
+      "FP ben-09 (health warning containing 'kill you')"
+    ]
+  }
+}

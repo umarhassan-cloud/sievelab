@@ -1,0 +1,18 @@
+# Keep all low-resource languages in the sample (Urdu, Roman Urdu, Pashto, Sindhi, Swahili ...).
+# The educational classifier is only trained on en/ur/ur_Latn, so quality filtering is disabled
+# here: applying it to unseen languages would silently delete them (see docs/BLOG_POST.md).
+run_name: multilingual
+output_dir: outputs/multilingual
+inputs:
+  - data/samples/corpus.jsonl
+  - data/samples/cc_sample.wet
+
+lang:
+  keep: [en, ur, ur_Latn, ar, fa, hi, ps, sd, sw, fr, es]
+  min_score: 0.4
+
+heuristics:
+  min_stopwords: 1
+
+quality:
+  enabled: false

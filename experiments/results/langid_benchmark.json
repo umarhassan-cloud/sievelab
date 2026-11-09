@@ -1,0 +1,70 @@
+{
+  "n_items": 206,
+  "languages": {
+    "en": 75,
+    "ur": 57,
+    "ur_Latn": 12,
+    "ar": 9,
+    "fa": 8,
+    "hi": 8,
+    "fr": 8,
+    "es": 8,
+    "sw": 8,
+    "ps": 7,
+    "sd": 6
+  },
+  "heuristic": {
+    "accuracy": 0.966,
+    "per_language": {
+      "ar": 1.0,
+      "en": 0.933,
+      "es": 1.0,
+      "fa": 1.0,
+      "fr": 1.0,
+      "hi": 1.0,
+      "long": 0.981,
+      "ps": 1.0,
+      "sd": 1.0,
+      "short(<40 chars)": 0.923,
+      "sw": 1.0,
+      "ur": 0.982,
+      "ur_Latn": 0.917
+    },
+    "top_confusions": {
+      "en->und": 5,
+      "ur_Latn->de": 1,
+      "ur->und": 1
+    },
+    "ms_per_item": 0.15
+  },
+  "langdetect": {
+    "accuracy": 0.8738,
+    "per_language": {
+      "ar": 1.0,
+      "en": 0.987,
+      "es": 1.0,
+      "fa": 1.0,
+      "fr": 1.0,
+      "hi": 1.0,
+      "long": 0.929,
+      "ps": 0.0,
+      "sd": 0.0,
+      "short(<40 chars)": 0.712,
+      "sw": 1.0,
+      "ur": 1.0,
+      "ur_Latn": 0.0
+    },
+    "top_confusions": {
+      "ps->fa": 6,
+      "sd->fa": 5,
+      "ur_Latn->id": 4,
+      "ur_Latn->so": 3,
+      "en->cy": 1,
+      "ur_Latn->sw": 1,
+      "ur_Latn->fi": 1,
+      "ur_Latn->fr": 1
+    },
+    "ms_per_item": 21.999
+  },
+  "langdetect_note": "langdetect has no Pashto, Sindhi or Roman-Urdu classes; those count as errors."
+}

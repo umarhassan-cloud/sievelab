@@ -1,0 +1,40 @@
+{"id": "pii-01", "lang": "en", "text": "Reach me at ali [at] example [dot] com for the class notes.", "pii": ["EMAIL"], "toxic": false, "note": "obfuscated email"}
+{"id": "pii-02", "lang": "en", "text": "Call 0300.123.4567 after five in the evening.", "pii": ["PHONE"], "toxic": false, "note": "dotted PK mobile"}
+{"id": "pii-03", "lang": "en", "text": "The London office number is +44 20 7946 0958.", "pii": ["PHONE"], "toxic": false, "note": "international landline"}
+{"id": "pii-04", "lang": "en", "text": "Applicant CNIC: 3520212345671, submitted on Monday.", "pii": ["CNIC"], "toxic": false, "note": "CNIC without dashes"}
+{"id": "pii-05", "lang": "en", "text": "Please email sara.malik@uni.edu.pk with your assignment.", "pii": ["EMAIL"], "toxic": false, "note": "standard email"}
+{"id": "pii-06", "lang": "en", "text": "Paid with card 5500-0000-0000-0004 yesterday.", "pii": ["CREDIT_CARD"], "toxic": false, "note": "dashed Luhn-valid card"}
+{"id": "pii-07", "lang": "en", "text": "Your order 4111 1111 1111 1112 has been shipped.", "pii": [], "toxic": false, "note": "card-shaped but fails Luhn"}
+{"id": "pii-08", "lang": "en", "text": "The population of Lahore is about 13,000,000 people.", "pii": [], "toxic": false, "note": "large number"}
+{"id": "pii-09", "lang": "en", "text": "The book has ISBN 978-0-306-40615-7 on its back cover.", "pii": [], "toxic": false, "note": "ISBN"}
+{"id": "pii-10", "lang": "en", "text": "Windows build 10.0.19045.3803 fixed the bug.", "pii": [], "toxic": false, "note": "version string"}
+{"id": "pii-11", "lang": "ur", "text": "میرا ای میل zainab.malik@example.com ہے۔", "pii": ["EMAIL"], "toxic": false, "note": "email inside Urdu"}
+{"id": "pii-12", "lang": "ur", "text": "فون: ۰۳۲۱ ۷۶۵۴۳۲۱ پر رابطہ کریں۔", "pii": ["PHONE"], "toxic": false, "note": "Urdu digits"}
+{"id": "pii-13", "lang": "en", "text": "Transfer the fee to IBAN PK36SCBL0000001123456702 before Friday.", "pii": ["IBAN"], "toxic": false, "note": "PK IBAN"}
+{"id": "pii-14", "lang": "en", "text": "The meeting is at 10:30 on 12-05-2024 in room 204.", "pii": [], "toxic": false, "note": "dates and times"}
+{"id": "pii-15", "lang": "en", "text": "Call me at five five five, one two three four.", "pii": ["PHONE"], "toxic": false, "note": "spelled-out number"}
+{"id": "pii-16", "lang": "en", "text": "The address 256.300.1.1 is not a valid IP address.", "pii": [], "toxic": false, "note": "invalid IPv4"}
+{"id": "pii-17", "lang": "en", "text": "Contact: info@school.edu.pk, +92-42-35761234.", "pii": ["EMAIL", "PHONE"], "toxic": false, "note": "email + PK landline"}
+{"id": "pii-18", "lang": "ur", "text": "شناختی کارڈ ۴۲۱۰۱۹۸۷۶۵۴۳۲۱ گم ہو گیا ہے۔", "pii": ["CNIC"], "toxic": false, "note": "Urdu-digit CNIC without dashes"}
+{"id": "pii-19", "lang": "en", "text": "Requests from 10.0.0.15 were blocked by the firewall.", "pii": ["IP_ADDRESS"], "toxic": false, "note": "private IPv4"}
+{"id": "pii-20", "lang": "en", "text": "Dr. Abdus Salam won the Nobel Prize in Physics in 1979.", "pii": [], "toxic": false, "note": "public figure (PERSON is flag-only)"}
+{"id": "tox-01", "lang": "en", "text": "You are such an idiot, nobody listens to you.", "pii": [], "toxic": true, "note": "in-lexicon insult"}
+{"id": "tox-02", "lang": "en", "text": "People like you should not be allowed to breathe.", "pii": [], "toxic": true, "note": "out-of-lexicon dehumanisation"}
+{"id": "tox-03", "lang": "en", "text": "I hope something terrible happens to your family.", "pii": [], "toxic": true, "note": "out-of-lexicon threat"}
+{"id": "tox-04", "lang": "en", "text": "Go back to your village, you uneducated peasant.", "pii": [], "toxic": true, "note": "paraphrased xenophobic insult"}
+{"id": "tox-05", "lang": "ur", "text": "تم جیسے لوگوں کو زندہ رہنے کا کوئی حق نہیں۔", "pii": [], "toxic": true, "note": "out-of-lexicon Urdu threat"}
+{"id": "tox-06", "lang": "ur", "text": "یہ لوگ کیڑے مکوڑے ہیں۔", "pii": [], "toxic": true, "note": "in-lexicon Urdu dehumanisation"}
+{"id": "tox-07", "lang": "ur_Latn", "text": "tu bilkul ullu ka pattha hai", "pii": [], "toxic": true, "note": "Roman Urdu insult"}
+{"id": "tox-08", "lang": "en", "text": "Ur such a l0ser lol", "pii": [], "toxic": true, "note": "leetspeak"}
+{"id": "tox-09", "lang": "en", "text": "Wow, what a genius, you managed to fail the easiest test ever.", "pii": [], "toxic": true, "note": "sarcasm"}
+{"id": "tox-10", "lang": "ur", "text": "تمہاری شکل دیکھ کر ہی الٹی آتی ہے۔", "pii": [], "toxic": true, "note": "out-of-lexicon Urdu insult"}
+{"id": "ben-01", "lang": "en", "text": "It would be stupid to ignore the safety rules in the chemistry lab.", "pii": [], "toxic": false, "note": "benign use of 'stupid'"}
+{"id": "ben-02", "lang": "en", "text": "In the novel, Lennie is not dumb; he is misunderstood by everyone around him.", "pii": [], "toxic": false, "note": "literary discussion"}
+{"id": "ben-03", "lang": "en", "text": "Antibiotics kill bacteria but cannot kill viruses.", "pii": [], "toxic": false, "note": "'kill' in science"}
+{"id": "ben-04", "lang": "en", "text": "Recycling turns trash into useful materials such as paper and glass.", "pii": [], "toxic": false, "note": "literal 'trash'"}
+{"id": "ben-05", "lang": "ur", "text": "گدھا ایک محنتی جانور ہے جو کسانوں کا بوجھ اٹھاتا ہے۔", "pii": [], "toxic": false, "note": "literal 'donkey' (also an Urdu insult)"}
+{"id": "ben-06", "lang": "en", "text": "Historians describe how propaganda called minorities vermin to justify persecution.", "pii": [], "toxic": false, "note": "counter-speech / history"}
+{"id": "ben-07", "lang": "ur", "text": "جاہل ہونا کوئی جرم نہیں، علم حاصل کرنا ہر ایک کا حق ہے۔", "pii": [], "toxic": false, "note": "benign use of 'jahil'"}
+{"id": "ben-08", "lang": "en", "text": "The film Kill Bill was released in 2003.", "pii": [], "toxic": false, "note": "title containing 'kill'"}
+{"id": "ben-09", "lang": "en", "text": "Doctors warn that smoking can kill you slowly over many years.", "pii": [], "toxic": false, "note": "health warning containing 'kill you'"}
+{"id": "ben-10", "lang": "ur", "text": "ماحول کو صاف رکھنا ہم سب کی ذمہ داری ہے۔", "pii": [], "toxic": false, "note": "plain benign Urdu"}

@@ -1,0 +1,19 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.pytest_cache/
+.venv/
+venv/
+.env
+.ipynb_checkpoints/
+.DS_Store
+Thumbs.db
+
+# Pipeline artifacts (regenerate with scripts/run_pipeline.py)
+outputs/
+models/
+*.bin
+*.ftz

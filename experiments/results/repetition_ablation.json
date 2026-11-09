@@ -1,0 +1,35 @@
+{
+  "budget_chars": 211378,
+  "rows": [
+    {
+      "unique_docs": 400,
+      "repeats": 1.0,
+      "bpc": 1.407,
+      "char_ppl": 2.6518
+    },
+    {
+      "unique_docs": 200,
+      "repeats": 1.93,
+      "bpc": 1.4918,
+      "char_ppl": 2.8123
+    },
+    {
+      "unique_docs": 100,
+      "repeats": 3.84,
+      "bpc": 1.6167,
+      "char_ppl": 3.0667
+    },
+    {
+      "unique_docs": 50,
+      "repeats": 7.76,
+      "bpc": 1.796,
+      "char_ppl": 3.4727
+    },
+    {
+      "unique_docs": 25,
+      "repeats": 15.38,
+      "bpc": 1.99,
+      "char_ppl": 3.9723
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+# Urdu-only corpus build (used for docs/URDU_DATASET_CARD.md).
+# Differences from default: Urdu only, lower lang-ID confidence floor (Urdu web text is
+# often code-mixed with English terms), and toxic sentences are removed instead of
+# dropping whole documents, because low-resource languages cannot afford to lose
+# otherwise-good articles over one abusive comment.
+run_name: urdu
+inputs:
+  - data/samples/corpus.jsonl
+  - data/samples/cc_sample.warc.gz
+  - data/samples/cc_sample.wet
+  - data/samples/html
+output_dir: outputs/urdu
+
+lang:
+  keep: [ur]
+  min_score: 0.4
+
+dedup:
+  threshold: 0.7
+
+quality:
+  thresholds:
+    default: 2.5
+
+safety:
+  toxicity:
+    action: redact_sentences

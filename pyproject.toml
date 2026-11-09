@@ -1,0 +1,51 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dataforge"
+version = "0.1.0"
+description = "Web-scale data curation pipeline: extraction, language ID, MinHash dedup, educational quality filtering, PII and toxicity filtering — with first-class Urdu support."
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Umar Hassan", email = "1umar.hassan1@gmail.com" }]
+requires-python = ">=3.9"
+keywords = ["data-curation", "llm", "pretraining", "minhash", "deduplication", "urdu", "fineweb", "common-crawl"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Text Processing :: Linguistic",
+]
+dependencies = [
+    "numpy>=1.21",
+    "scikit-learn>=1.0",
+    "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+parquet = ["pyarrow>=10.0"]
+langdetect = ["langdetect>=1.0.9"]
+fasttext = ["fasttext-wheel>=0.9.2"]
+datasketch = ["datasketch>=1.5"]
+ray = ["ray>=2.0"]
+torch = ["torch>=2.0"]
+extract = ["trafilatura>=1.6"]
+dev = ["pytest>=7.0"]
+all = [
+    "pyarrow>=10.0",
+    "langdetect>=1.0.9",
+    "datasketch>=1.5",
+    "torch>=2.0",
+    "pytest>=7.0",
+]
+
+[project.scripts]
+dataforge = "dataforge.pipeline.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["dataforge*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
