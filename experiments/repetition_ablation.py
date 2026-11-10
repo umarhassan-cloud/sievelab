@@ -17,8 +17,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-from dataforge.eval.ngram_lm import CharKneserNeyLM  # noqa: E402
-from dataforge.pipeline.io import read_jsonl  # noqa: E402
+from sievelab.eval.ngram_lm import CharKneserNeyLM  # noqa: E402
+from sievelab.pipeline.io import read_jsonl  # noqa: E402
 
 
 def main() -> None:

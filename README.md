@@ -1,6 +1,9 @@
-# DataForge
+# SieveLab
 
-**A web-scale data curation pipeline for LLM pretraining, with first-class Urdu and low-resource language support.**
+> Raw web in. Clean training signal out — measured at every mesh of the sieve.
+
+**SieveLab** is a web-scale data curation lab for LLM pretraining, with first-class Urdu and
+low-resource language support. Every stage is an instrumented sieve — not a black-box filter.
 
 Text extraction from WARC/WET/HTML → language ID → Gopher/C4 heuristics → exact + MinHash-LSH
 dedup → FineWeb-Edu-style educational classifier → PII redaction → toxicity filtering →
@@ -31,7 +34,7 @@ benchmarks; DCLM showed a single quality classifier beats stacks of heuristics. 
    confused with Persian, Roman Urdu is invisible to standard language ID, and English
    rule thresholds over-filter Arabic-script text.
 
-DataForge is a compact, fully instrumented implementation of the modern recipe that makes
+SieveLab is a compact, fully instrumented implementation of the modern recipe that makes
 both visible.
 
 ## Architecture
@@ -54,13 +57,13 @@ Details: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) (stage order, data contr
 
 | Module | What it implements |
 |---|---|
-| `dataforge/lang/` | WARC/WET reader-writer (plain + per-record gzip), boilerplate-aware HTML extractor, script + function-word language ID with Urdu/Persian/Arabic/Pashto/Sindhi disambiguation and Roman Urdu; `langdetect` and fastText backends |
-| `dataforge/dedup/` | MinHash with universal hashing (datasketch-compatible), LSH banding with optimal (b, r), union-find, exact SHA-256 dedup with Arabic-letter folding, streaming and map-reduce deduplicators, multiprocessing / Ray signature workers, optional datasketch backend |
-| `dataforge/quality/` | Language-aware Gopher/C4 rules; additive 0-5 educational rubric as teacher; TF-IDF char+word → ridge student; κ / F1 / MSE reports |
-| `dataforge/safety/` | Regex + validator PII (Luhn, IPv4, CNIC, PK mobiles, IBAN, Urdu digits), honorific-triggered name detector (NER stub with spaCy adapter), severity-weighted en/ur/Roman-Urdu toxicity lexicon, optional classifier, retention policies |
-| `dataforge/pipeline/` | YAML configs + CLI overrides, stages, manifest, ground-truth evaluation, JSONL/Parquet/per-language export |
-| `dataforge/eval/` | Char-level Kneser-Ney LM, tiny char GPT (torch), 13-gram contamination check |
-| `dataforge/synth/` | Deterministic 11-language crawl generator with ground truth, procedural fact generators, HTML/WARC rendering |
+| `sievelab/lang/` | WARC/WET reader-writer (plain + per-record gzip), boilerplate-aware HTML extractor, script + function-word language ID with Urdu/Persian/Arabic/Pashto/Sindhi disambiguation and Roman Urdu; `langdetect` and fastText backends |
+| `sievelab/dedup/` | MinHash with universal hashing (datasketch-compatible), LSH banding with optimal (b, r), union-find, exact SHA-256 dedup with Arabic-letter folding, streaming and map-reduce deduplicators, multiprocessing / Ray signature workers, optional datasketch backend |
+| `sievelab/quality/` | Language-aware Gopher/C4 rules; additive 0-5 educational rubric as teacher; TF-IDF char+word → ridge student; κ / F1 / MSE reports |
+| `sievelab/safety/` | Regex + validator PII (Luhn, IPv4, CNIC, PK mobiles, IBAN, Urdu digits), honorific-triggered name detector (NER stub with spaCy adapter), severity-weighted en/ur/Roman-Urdu toxicity lexicon, optional classifier, retention policies |
+| `sievelab/pipeline/` | YAML configs + CLI overrides, stages, manifest, ground-truth evaluation, JSONL/Parquet/per-language export |
+| `sievelab/eval/` | Char-level Kneser-Ney LM, tiny char GPT (torch), 13-gram contamination check |
+| `sievelab/synth/` | Deterministic 11-language crawl generator with ground truth, procedural fact generators, HTML/WARC rendering |
 
 ## Results
 
@@ -133,7 +136,7 @@ fixed budget, 3.8× repetition raises perplexity by **15.6 %** and 15× repetiti
 
 ### Resume-style summary
 
-> Built DataForge, a WARC-to-Parquet pretraining-data pipeline (language ID, Gopher
+> Built SieveLab, a WARC-to-Parquet pretraining-data pipeline (language ID, Gopher
 > heuristics, MinHash-LSH dedup, FineWeb-Edu-style classifier, PII/toxicity) with per-stage
 > precision/recall. **Dedup removed 17.0 % of documents** (recall 0.97, precision 0.99);
 > **the quality filter removed a further 43.8 %** (κ = 0.86 vs gold); at an equal data budget,
@@ -151,7 +154,7 @@ fixed budget, 3.8× repetition raises perplexity by **15.6 %** and 15× repetiti
   so copies typed on different keyboards collide.
 * **Urdu-digit PII.** `۰۳۰۰-۱۲۳۴۵۶۷` and `۳۵۲۰۲-۱۲۳۴۵۶۷-۱` are detected.
 * **English rules over-filter.** Gopher's "80 % alphabetic words" rule removed **41 % of
-  educational documents** (math-heavy text); DataForge ships 0.6 (0 % removed).
+  educational documents** (math-heavy text); SieveLab ships 0.6 (0 % removed).
 * **Retention policies for scarce data.** `redact_sentences` removes abusive comments while
   keeping the article (16 Urdu documents saved in the Urdu build).
 * **Dataset card:** [`docs/URDU_DATASET_CARD.md`](docs/URDU_DATASET_CARD.md). 273 documents
@@ -163,7 +166,7 @@ fixed budget, 3.8× repetition raises perplexity by **15.6 %** and 15× repetiti
 # Curate with a config, override anything from the CLI
 python scripts/run_pipeline.py --config configs/urdu.yaml
 python scripts/run_pipeline.py --set dedup.threshold=0.8 --set dedup.workers=4 --set dedup.mode=mapreduce
-dataforge run --config configs/strict.yaml --base-dir .      # console script after pip install -e .
+sievelab run --config configs/strict.yaml --base-dir .      # console script after pip install -e .
 
 # Components
 python scripts/make_sample_corpus.py        # regenerate data/samples deterministically
@@ -174,9 +177,9 @@ python experiments/repetition_ablation.py
 ```
 
 ```python
-from dataforge.dedup import NearDuplicateDeduplicator
-from dataforge.lang import LanguageIdentifier
-from dataforge.safety import PIIDetector, redact
+from sievelab.dedup import NearDuplicateDeduplicator
+from sievelab.lang import LanguageIdentifier
+from sievelab.safety import PIIDetector, redact
 
 LanguageIdentifier().predict("yaar kal ka match bohat zabardast tha")   # ('ur_Latn', 0.775)
 res = NearDuplicateDeduplicator(threshold=0.7, mode="mapreduce").run(texts)
@@ -223,7 +226,7 @@ trained on them).
 ## Repository layout
 
 ```
-dataforge/      library (lang, dedup, quality, safety, pipeline, eval, synth)
+sievelab/      library (lang, dedup, quality, safety, pipeline, eval, synth)
 scripts/        run_pipeline, train_quality_clf, prove_cleaning_helps, eval_langid, eval_safety_challenge, make_sample_corpus
 experiments/    repetition ablation + results/ (all reported numbers)
 configs/        default, urdu, strict, multilingual

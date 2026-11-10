@@ -35,11 +35,11 @@ import numpy as np
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-from dataforge.eval.contamination import ngram_overlap  # noqa: E402
-from dataforge.eval.ngram_lm import CharKneserNeyLM  # noqa: E402
-from dataforge.pipeline.config import load_config  # noqa: E402
-from dataforge.pipeline.io import read_jsonl  # noqa: E402
-from dataforge.pipeline.runner import Pipeline  # noqa: E402
+from sievelab.eval.contamination import ngram_overlap  # noqa: E402
+from sievelab.eval.ngram_lm import CharKneserNeyLM  # noqa: E402
+from sievelab.pipeline.config import load_config  # noqa: E402
+from sievelab.pipeline.io import read_jsonl  # noqa: E402
+from sievelab.pipeline.runner import Pipeline  # noqa: E402
 
 CONDITIONS = [
     ("raw", None),
@@ -106,7 +106,7 @@ def main() -> None:
     raw_docs = Pipeline(base_cfg, ROOT).ingest()
     train_sets: Dict[str, List[str]] = {"raw": [d.text for d in raw_docs if d.text.strip()]}
     for name, override in CONDITIONS[1:]:
-        from dataforge.pipeline.config import deep_merge
+        from sievelab.pipeline.config import deep_merge
 
         cfg = deep_merge(copy.deepcopy(base_cfg), override)
         res = Pipeline(cfg, ROOT).run(export=False)
@@ -145,7 +145,7 @@ def main() -> None:
     except ImportError:
         have_torch = False
     if (args.gpt is None and have_torch) or args.gpt:
-        from dataforge.eval import tiny_gpt
+        from sievelab.eval import tiny_gpt
 
         cv = tiny_gpt.CharVocab(sorted(vocab))
         ev_all = [t for ts in evals.values() for t in ts]

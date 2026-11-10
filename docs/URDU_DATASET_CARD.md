@@ -2,7 +2,7 @@
 language:
   - ur
 license: mit
-pretty_name: DataForge Urdu-Edu (sample)
+pretty_name: SieveLab Urdu-Edu (sample)
 size_categories:
   - n<1K
 task_categories:
@@ -22,12 +22,12 @@ configs:
     data_files: outputs/urdu/clean.parquet
 ---
 
-# Dataset card: DataForge Urdu-Edu (sample scale)
+# Dataset card: SieveLab Urdu-Edu (sample scale)
 
 ## Summary
 
-**DataForge Urdu-Edu** is an educational-quality Urdu (`ur`, Arabic script, Nastaliq)
-pretraining corpus produced by the DataForge pipeline (`configs/urdu.yaml`). It
+**SieveLab Urdu-Edu** is an educational-quality Urdu (`ur`, Arabic script, Nastaliq)
+pretraining corpus produced by the SieveLab pipeline (`configs/urdu.yaml`). It
 follows the FineWeb-Edu recipe (language ID → quality heuristics → MinHash dedup →
 educational-value classifier) and adds PII redaction and sentence-level toxicity
 removal tuned for Urdu.
@@ -82,7 +82,7 @@ PII spans are replaced with typed placeholders: `<EMAIL>`, `<PHONE>`, `<CNIC>`,
 
 ## Source data
 
-The input is DataForge's sample crawl: a JSONL corpus, a WARC file with full HTML page
+The input is SieveLab's sample crawl: a JSONL corpus, a WARC file with full HTML page
 chrome, a WET file and stand-alone HTML pages, in 11 languages (2,707 documents in
 total). Urdu content consists of:
 
@@ -143,7 +143,7 @@ documents; no spam, casual chat or boilerplate survived.
 * **Urdu digits.** PII detectors match Extended Arabic-Indic digits (۰-۹), e.g.
   `۰۳۰۰-۱۲۳۴۵۶۷`.
 * **Numerals.** Gopher's rule that 80 % of words must contain a letter removed 41 % of
-  math-heavy educational documents in the sample; DataForge uses 0.6 (0 % of educational
+  math-heavy educational documents in the sample; SieveLab uses 0.6 (0 % of educational
   Urdu documents removed).
 * **Toxicity retention.** `redact_sentences` keeps the article and removes only the abusive
   comment: 16 documents kept that a `drop` policy would have discarded.
@@ -173,9 +173,9 @@ human-rated audit of 200+ documents before using a real-crawl version for traini
 ## Citation
 
 ```bibtex
-@software{hassan2026dataforge,
+@software{hassan2026sievelab,
   author = {Hassan, Umar},
-  title  = {DataForge: Web-Scale Data Curation with First-Class Urdu Support},
+  title  = {SieveLab: Web-Scale Data Curation with First-Class Urdu Support},
   year   = {2026}
 }
 ```

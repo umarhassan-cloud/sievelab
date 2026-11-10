@@ -14,12 +14,12 @@ enough that every stage reports precision and recall, not just "removed 37 %". I
 wanted to see what happens to a low-resource language, in this case Urdu, when it passes
 through filters designed around English.
 
-This post covers what I built (DataForge), the measurements, and five things that
+This post covers what I built (SieveLab), the measurements, and five things that
 surprised me.
 
 ## The setup
 
-DataForge runs `ingest → language ID → heuristics → dedup → educational classifier → PII →
+SieveLab runs `ingest → language ID → heuristics → dedup → educational classifier → PII →
 toxicity → export`, with a manifest of counts per stage. To measure each filter, the
 sample crawl is **synthetic with ground truth**: 2,707 documents in 11 languages, in
 JSONL, WARC (full HTML page chrome) and WET formats. Every document carries hidden labels

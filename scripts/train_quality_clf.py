@@ -21,9 +21,9 @@ import numpy as np
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-from dataforge.pipeline.io import read_jsonl  # noqa: E402
-from dataforge.quality.annotator import EduHeuristicAnnotator  # noqa: E402
-from dataforge.quality.classifier import EduQualityClassifier, regression_report  # noqa: E402
+from sievelab.pipeline.io import read_jsonl  # noqa: E402
+from sievelab.quality.annotator import EduHeuristicAnnotator  # noqa: E402
+from sievelab.quality.classifier import EduQualityClassifier, regression_report  # noqa: E402
 
 
 def main() -> None:

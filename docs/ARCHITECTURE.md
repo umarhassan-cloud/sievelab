@@ -1,6 +1,6 @@
 # Architecture
 
-DataForge is a staged, auditable filter pipeline. Every stage is a pure function
+SieveLab is a staged, auditable filter pipeline. Every stage is a pure function
 `List[Document] -> (kept, rejected, info)`; the runner records counts, character
 volume, rejection reasons and wall time per stage into a manifest, and writes every
 rejected document with its stage and reason to `rejected.jsonl`.
@@ -47,7 +47,7 @@ lossy ones last**.
 ## Modules
 
 ```
-dataforge/
+sievelab/
   document.py        Document dataclass (id, text, url, source, lang, meta)
   text_utils.py      Unicode normalisation (NFKC, Arabic-letter folding, diacritics), tokenisation
   lang/
@@ -76,7 +76,7 @@ dataforge/
     manifest.py      per-stage accounting
     evaluation.py    join decisions with injected ground truth -> precision/recall per stage
     runner.py        orchestration + export
-    cli.py           `dataforge run --config ... --set key=value`
+    cli.py           `sievelab run --config ... --set key=value`
   eval/
     ngram_lm.py      char-level interpolated Kneser-Ney LM
     tiny_gpt.py      char-level decoder-only transformer (torch)

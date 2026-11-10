@@ -19,9 +19,9 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-from dataforge.lang.langid import LanguageIdentifier  # noqa: E402
-from dataforge.synth import content as C  # noqa: E402
-from dataforge.synth.generator import edu_sentences  # noqa: E402
+from sievelab.lang.langid import LanguageIdentifier  # noqa: E402
+from sievelab.synth import content as C  # noqa: E402
+from sievelab.synth.generator import edu_sentences  # noqa: E402
 
 CODE_MIXED = [
     ("ur", "آج کی meeting بہت productive تھی اور سب نے اپنے ideas share کیے۔"),

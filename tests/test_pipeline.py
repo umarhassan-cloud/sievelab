@@ -1,10 +1,10 @@
 import json
 
-from dataforge.eval.ngram_lm import CharKneserNeyLM
-from dataforge.pipeline import Pipeline, load_config
-from dataforge.pipeline.config import apply_overrides
-from dataforge.pipeline.io import write_jsonl
-from dataforge.synth import CorpusGenerator
+from sievelab.eval.ngram_lm import CharKneserNeyLM
+from sievelab.pipeline import Pipeline, load_config
+from sievelab.pipeline.config import apply_overrides
+from sievelab.pipeline.io import write_jsonl
+from sievelab.synth import CorpusGenerator
 
 
 def small_config(tmp_path, **over):

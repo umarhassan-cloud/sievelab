@@ -1,5 +1,5 @@
-from dataforge.quality import EduHeuristicAnnotator, EduQualityClassifier, HeuristicConfig, apply_rules, regression_report
-from dataforge.synth import CorpusGenerator
+from sievelab.quality import EduHeuristicAnnotator, EduQualityClassifier, HeuristicConfig, apply_rules, regression_report
+from sievelab.synth import CorpusGenerator
 
 EDU = ("In this lesson, we will learn about biology. The cell is the basic unit of life, and all living things are "
        "made of cells. For example, the human body contains trillions of cells that work together. Because cells "

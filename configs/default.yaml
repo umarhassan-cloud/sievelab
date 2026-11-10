@@ -1,4 +1,4 @@
-# DataForge default pipeline: English + Urdu, FineWeb-Edu-style filtering.
+# SieveLab default pipeline: English + Urdu, FineWeb-Edu-style filtering.
 run_name: default
 inputs:
   - data/samples/corpus.jsonl

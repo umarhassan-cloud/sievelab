@@ -1,4 +1,4 @@
-from dataforge.safety import LexiconToxicityScorer, PIIDetector, ToxicityClassifier, luhn_valid, redact
+from sievelab.safety import LexiconToxicityScorer, PIIDetector, ToxicityClassifier, luhn_valid, redact
 
 DET = PIIDetector()
 

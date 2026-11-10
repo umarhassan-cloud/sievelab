@@ -1,4 +1,4 @@
-# System design: scaling DataForge to Common Crawl
+# System design: scaling SieveLab to Common Crawl
 
 The repository runs on a laptop-sized sample, but every stage is written so it maps
 onto a distributed engine without changing semantics. This document sketches the
@@ -28,7 +28,7 @@ most expensive model in the pipeline, and dedup removes a large fraction of docu
 
 ## 2. MinHash LSH on Spark
 
-`dataforge/dedup/dedup.py::_run_mapreduce` is the single-node reference for this job.
+`sievelab/dedup/dedup.py::_run_mapreduce` is the single-node reference for this job.
 
 ```text
 docs: (doc_id, sig[0..127])
@@ -50,7 +50,7 @@ Design decisions:
 * **Star edges instead of all pairs.** A bucket of size k produces k-1 edges instead of
   k(k-1)/2. Connected components are unchanged; only verification granularity changes.
 * **Verification.** Optional; on Spark it costs one more join. Without it, transitive
-  chains (A≈B, B≈C, A≉C) can over-merge. DataForge verifies by default; in the sample the
+  chains (A≈B, B≈C, A≉C) can over-merge. SieveLab verifies by default; in the sample the
   exact-Jaccard precision of removals is ~0.99.
 * **Shuffle volume.** 3 B docs × 14 bands × ~16 B ≈ 670 GB, which is fine for a Spark cluster.
   Partition by `band` first so each band's groupBy is independent and can be run
@@ -60,7 +60,7 @@ Design decisions:
 
 ## 3. Ray variant
 
-`dataforge/dedup/parallel.py` already distributes signature computation with Ray
+`sievelab/dedup/parallel.py` already distributes signature computation with Ray
 (`parallel_backend: ray`). For the global step:
 
 * Ray Data `map_batches` computes signatures and emits `(band, hash, id)` rows.

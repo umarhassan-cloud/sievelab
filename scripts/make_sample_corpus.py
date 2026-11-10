@@ -12,10 +12,10 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-from dataforge.lang.warc import WarcWriter  # noqa: E402
-from dataforge.pipeline.io import write_jsonl  # noqa: E402
-from dataforge.synth.generator import CorpusGenerator  # noqa: E402
-from dataforge.synth.html import render_page  # noqa: E402
+from sievelab.lang.warc import WarcWriter  # noqa: E402
+from sievelab.pipeline.io import write_jsonl  # noqa: E402
+from sievelab.synth.generator import CorpusGenerator  # noqa: E402
+from sievelab.synth.html import render_page  # noqa: E402
 
 OUT = ROOT / "data" / "samples"
 

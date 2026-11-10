@@ -1,6 +1,6 @@
 import gzip
 
-from dataforge.lang import LanguageIdentifier, WarcWriter, extract_text, iter_documents, iter_records
+from sievelab.lang import LanguageIdentifier, WarcWriter, extract_text, iter_documents, iter_records
 
 LID = LanguageIdentifier()
 

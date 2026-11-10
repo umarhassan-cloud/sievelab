@@ -13,7 +13,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-from dataforge.pipeline.cli import main  # noqa: E402
+from sievelab.pipeline.cli import main  # noqa: E402
 
 if __name__ == "__main__":
     argv = sys.argv[1:]

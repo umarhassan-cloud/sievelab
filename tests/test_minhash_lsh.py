@@ -3,7 +3,7 @@ import random
 import numpy as np
 import pytest
 
-from dataforge.dedup import (
+from sievelab.dedup import (
     ExactDeduplicator,
     MinHasher,
     MinHashLSH,
@@ -116,7 +116,7 @@ def test_streaming_and_mapreduce_agree():
 
 
 def test_parallel_signatures_match_serial():
-    from dataforge.dedup.parallel import compute_signatures
+    from sievelab.dedup.parallel import compute_signatures
 
     rng = random.Random(2)
     texts = [rand_doc(rng, 50) for _ in range(250)]

@@ -3,9 +3,9 @@ requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "dataforge"
+name = "sievelab"
 version = "0.1.0"
-description = "Web-scale data curation pipeline: extraction, language ID, MinHash dedup, educational quality filtering, PII and toxicity filtering — with first-class Urdu support."
+description = "SieveLab — web-scale data curation lab: language ID, MinHash dedup, FineWeb-Edu quality, PII/toxicity sieves, first-class Urdu support."
 readme = "README.md"
 license = { text = "MIT" }
 authors = [{ name = "Umar Hassan", email = "1umar.hassan1@gmail.com" }]
@@ -41,10 +41,10 @@ all = [
 ]
 
 [project.scripts]
-dataforge = "dataforge.pipeline.cli:main"
+sievelab = "sievelab.pipeline.cli:main"
 
 [tool.setuptools.packages.find]
-include = ["dataforge*"]
+include = ["sievelab*"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
